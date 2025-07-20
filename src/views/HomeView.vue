@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import FeatureSection from '../components/FeatureSection.vue'
+import logo from '../assets/mobena_logo.png'
 function scrollToBottom() {
   window.scrollTo({
     top: document.body.scrollHeight,
@@ -17,7 +18,7 @@ function scrollToBottom() {
         <img
           alt="Mobena logo"
           class="h-auto w-4/5 max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]"
-          src="../assets/mobena_logo.png"
+          :src="logo"
         />
         <p
           class="mt-8 text-center font-oxygen text-2xl whitespace-nowrap text-white uppercase sm:mt-4 sm:text-3xl md:mt-4 md:text-4xl lg:mt-4 lg:text-[48px]"
@@ -40,7 +41,7 @@ function scrollToBottom() {
               <input
                 id="email"
                 placeholder="name@email.com"
-                required=""
+                :required="true"
                 class="flex-grow rounded-md border-0 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-300 focus:ring-inset"
                 type="email"
                 value=""
