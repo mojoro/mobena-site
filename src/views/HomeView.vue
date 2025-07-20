@@ -1,4 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import FeatureSection from '../components/FeatureSection.vue'
+function scrollToBottom() {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: 'smooth',
+  })
+}
+</script>
 
 <template>
   <div>
@@ -50,8 +58,8 @@
           </div>
         </div>
       </div>
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 transform">
-        <div class="animate-pulse-vibrance cursor-pointer text-center">
+      <div class="absolute bottom-18 left-1/2 -translate-x-1/2 transform">
+        <div class="animate-bounce-down cursor-pointer text-center" @click="scrollToBottom">
           <p class="font-poppins text-lg tracking-wider"></p>
           <svg
             stroke="#ffffff"
@@ -70,54 +78,7 @@
         </div>
       </div>
     </div>
-    <div class="feature-section w-full px-4 py-16">
-      <div class="mx-auto max-w-7xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Changing Tax and Accounting Forever
-        </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">
-          Mobena is the first income and estate tax planning platform that provides accurate
-          planning over a multigenerational timeframe
-        </p>
-        <div class="mt-12 grid gap-8 md:grid-cols-3">
-          <div class="flex h-96 flex-col rounded-xl bg-[var(--mobena-soft-blue)] p-6 text-left">
-            <img
-              class="mb-4 h-48 w-full rounded-lg object-cover"
-              alt="Accurate Income Tax"
-              src="https://cdn.prod.website-files.com/643010cf972169b0d887edac/6706394cb9459aaa57b8ddc4_Teisis6.jpg"
-            />
-            <h3 class="mb-2 text-xl font-bold text-white">Accurate Income Tax</h3>
-            <p class="flex-grow text-white/90">
-              Mobena was created by family office tax advisors to model tax the way that CPAs model
-              tax for wealthy families
-            </p>
-          </div>
-          <div class="flex h-96 flex-col rounded-xl bg-[var(--mobena-soft-blue)] p-6 text-left">
-            <img
-              class="mb-4 h-48 w-full rounded-lg object-cover"
-              alt="Real Life Structures"
-              src="https://apptad.com/wp-content/uploads/2025/04/AdobeStock_473276539-2.jpeg"
-            />
-            <h3 class="mb-2 text-xl font-bold text-white">Real Life Structures</h3>
-            <p class="flex-grow text-white/90">
-              Like real life, Mobena reflects tiered-entity structures for the entire family and
-              their trusts.
-            </p>
-          </div>
-          <div class="flex h-96 flex-col rounded-xl bg-[var(--mobena-soft-blue)] p-6 text-left">
-            <img
-              class="mb-4 h-48 w-full rounded-lg object-cover"
-              alt="Trust and Estate Models"
-              src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSbNO5kx_SPn76j6XQD3GlZjUf4XySpqE5LSlAj6OniEWvuG94w"
-            />
-            <h3 class="mb-2 text-xl font-bold text-white">Trust and Estate Models</h3>
-            <p class="flex-grow text-white/90">
-              Mobena was built to handle accurate trust income tax and estate tax treatment.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <FeatureSection />
     <footer class="w-full p-4 font-roboto text-xs text-white">
       <div class="container mx-auto flex items-center justify-between">
         <p class="text-white/70">© 2025 Mobena Evolution LLC</p>
@@ -127,4 +88,17 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@keyframes bounce-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(18px);
+  }
+}
+.animate-bounce-down {
+  animation: bounce-down 2.3s infinite;
+}
+</style>
